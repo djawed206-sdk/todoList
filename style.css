@@ -1,0 +1,123 @@
+body{
+    background-color: rgb(1, 1, 93);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#boxlkbir{
+    background-color: rgb(210, 222, 222);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    border-radius: 5px;
+   
+}
+#addBox{
+    background-color:rgb(19, 19, 152) ;
+    display: flex;
+   
+}
+#myMission{
+    width: 100%;
+    text-align: center;
+    color: aliceblue
+}
+#iadd{
+    
+    border-style: none;
+    border-radius: 50% 50%;
+    margin: 10px;
+}
+#iadd{
+    color:rgb(19, 19, 152) ;
+}
+input{
+    border: none;
+}
+.missions-en-personne{
+    font-weight: bold;
+}
+
+
+#missions{
+    background-color:aliceblue;
+   border-radius: 5px;
+   margin: 10px;
+   display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.star1{ 
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px;
+    transition: 700ms;
+}
+.star1:hover{
+    box-shadow: 0px 7px 50px gray;
+}
+.katba1{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding:5px;
+    
+    width: 50%;
+    
+
+}
+.date{
+    font-size: 10px;
+    font-weight:lighter;
+}
+
+
+ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left:30px;;
+    
+}
+ul{
+    padding-right:10px;
+    padding-left:10px;
+    
+    
+}
+.imodify{
+    background-color:rgb(19, 19, 152);
+    border-radius: 50% ;
+}
+.fa-pen,.fa-check,.fa-trash{
+    color: white;
+}
+.fa-xmark{
+   color: white; 
+}
+.icheck{
+    background-color:green;
+    border-radius: 50% ;
+}
+.itrash{
+    background-color:rgb(150, 7, 7);
+    border-radius: 50% ;
+}
+hr{
+    width: 100%;
+    margin: 0;
+    
+}
+@media (max-width:600px){
+    ul{
+       /* padding: 0;
+        margin-right: 20px;*/
+        display: flex;
+    }
+    ul li{
+      /*  margin: 0;*/
+
+    }
+}

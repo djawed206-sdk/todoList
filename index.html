@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+  <div id="boxlkbir">
+<div id="addBox">
+    <p id="myMission">My mission</p>
+    <button id="iadd"><i class="fa fa-plus" ></i></button>
+</div>
+
+
+<div id="missions">
+<!--<div class="star1">
+    <div class="katba1">
+        <span class="missions-en-personne">read a book</span>
+                
+            <span class="date"><i class="fa fa-calendar"></i> 05/06/2026</span>
+    </div>
+   <ul>
+    <li><button class="imodify"><i class="fa fa-pen"></i></button></li>
+    <li><button class="icheck"><i class="fa fa-check"></i></button></li>
+    <li><button class="itrash"><i class="fa fa-trash"></i></button></li>
+     
+   </ul> 
+</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+<script>
+    
+     let missions=[
+        
+    ]
+let missions2=JSON.parse(localStorage.getItem("missions"))
+if(missions2==null){
+    missions=[]
+}
+else{
+    missions=missions2
+}
+hello()
+console.log(missions)
+
+
+
+
+
+
+
+
+   document.getElementById("iadd").addEventListener("click",function(){
+        let Name=prompt("enter the misson:")
+        let Date=prompt("enter the date:")
+        console.log(Name,Date)
+        missions.push({"name":Name,"date":Date,"done":false})
+console.log(missions)
+
+let missionsString=JSON.stringify(missions)
+localStorage.setItem("missions",missionsString)
+hello()
+
+    })
+
+
+
+
+
+    function hello(){
+console.log(missions)
+
+
+   document.getElementById("missions").innerHTML=""
+    for(let i=0;i<missions.length;i++){
+       
+    let nameM=missions[i].name
+   
+    let dateM=missions[i].date
+  
+    let is_done=missions[i].done
+   
+    
+
+
+
+    document.getElementById("missions").innerHTML+=`
+   <div class="star1">
+    <div class="katba1">
+        <span class="missions-en-personne">${nameM}</span>
+                
+            <span class="date"><i class="fa fa-calendar"></i>${dateM}</span>
+    </div>
+   <ul>
+    <li><button class="imodify" onclick=modify(${i})><i class="fa fa-pen"></i></button></li>
+    <li><button class="icheck" onclick=verif(${i})><i class="fa fa-check"></i></button></li>
+    <li><button class="itrash" onclick=sup(${i})><i class="fa fa-trash"></i></button></li>
+     
+   </ul> 
+</div>
+   `
+   if(missions[i].done==true){
+    let color=document.getElementsByClassName("star1")[i]
+    color.style.backgroundColor="green"
+document.getElementsByClassName("icheck")[i].style.backgroundColor="rgb(123, 16, 16)"
+//document.getElementsByClassName("fa fa-check")[i].setAttribute("class","fa fa-solid fa-xmark")
+let btn=document.getElementsByClassName("icheck")[i]
+btn.querySelector("i").setAttribute("class","fa fa-solid fa-xmark")
+
+}
+
+}
+
+}
+function sup(i){
+    let sur=confirm("are u sure u want to delete this mission:")
+if(sur){missions.splice(i,1)
+    
+let missionsString=JSON.stringify(missions)
+localStorage.setItem("missions",missionsString)
+hello()
+}}
+
+
+
+
+
+function modify(i){
+    let jaja=missions[i].name
+   let content= prompt("enter the new name of the mission:",jaja)
+console.log(missions[i].name)
+missions[i].name=content
+let missionsString=JSON.stringify(missions)
+localStorage.setItem("missions",missionsString)
+hello()
+//document.getElementsByClassName("icheck")[i].addEventListener("click",verif(i))
+console.log(missions[i].name)
+
+}
+
+
+
+
+
+function verif(i){
+   /* console.log(missions[i])
+    let color=document.getElementsByClassName("star1")[i]
+    if(missions[i].done==false){
+color.style.backgroundColor="green"
+document.getElementsByClassName("icheck")[i].style.backgroundColor="rgb(123, 16, 16)"
+//document.getElementsByClassName("fa fa-check")[i].setAttribute("class","fa fa-solid fa-xmark")
+let btn=document.getElementsByClassName("icheck")[i]
+btn.querySelector("i").setAttribute("class","fa fa-solid fa-xmark")
+missions[i].done=true
+console.log(missions[i])
+let missionsString=JSON.stringify(missions)
+localStorage.setItem("missions",missionsString)
+}
+else{
+color.style.backgroundColor="white"
+document.getElementsByClassName("icheck")[i].style.backgroundColor="green"
+//document.getElementsByClassName("fa fa-solid fa-xmark")[i].setAttribute("class","fa fa-check")
+let btn=document.getElementsByClassName("icheck")[i]
+btn.querySelector("i").setAttribute("class","fa fa-check")
+missions[i].done=false
+let missionsString=JSON.stringify(missions)
+localStorage.setItem("missions",missionsString)
+}
+*/
+
+
+if(missions[i].done==true){
+    missions[i].done=false
+}
+else{
+    missions[i].done=true
+}
+hello()
+
+}
+
+ 
+</script>
+</html>
+
